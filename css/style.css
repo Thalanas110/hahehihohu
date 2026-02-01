@@ -1,9 +1,13 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Quicksand:wght@300;400;500&display=swap');
+
 :root {
-    --text-color: #e0e0e0;
-    --card-bg: rgba(255, 255, 255, 0.05);
-    --card-border: rgba(255, 255, 255, 0.1);
-    --modal-bg: rgba(20, 20, 30, 0.85);
-    --accent: #aaddff;
+    --text-color: #f0f0f0;
+    --accent-color: #d8b4fe;
+    /* Muted purple/pink */
+    --glass-bg: rgba(20, 20, 30, 0.4);
+    --glass-border: rgba(255, 255, 255, 0.08);
+    --search-bg: rgba(10, 10, 15, 0.6);
+    --active-pill: linear-gradient(135deg, #a78bfa, #f472b6);
 }
 
 * {
@@ -13,81 +17,206 @@
 }
 
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Quicksand', sans-serif;
+    /* Clean sans for body */
     color: var(--text-color);
     line-height: 1.6;
     overflow-x: hidden;
     min-height: 100vh;
-    background: url('../images/peakpx (1).jpg') no-repeat center center fixed;
+    background: url('../images/background.jpg') no-repeat center center fixed;
     background-size: cover;
+}
+
+/* Vignette Overlay */
+body::after {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at center, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.6) 100%);
+    pointer-events: none;
+    z-index: -1;
 }
 
 .container {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 2rem;
+    padding: 4rem 2rem;
     position: relative;
     z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
+/* Header */
 header {
     text-align: center;
     margin-bottom: 3rem;
-    padding-top: 2rem;
+    width: 100%;
 }
 
-h1 {
-    font-weight: 300;
-    font-size: 2.5rem;
-    letter-spacing: 2px;
-    color: var(--accent);
-    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+.main-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 3.5rem;
+    font-weight: 700;
+    color: #fff;
+    text-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+    margin-bottom: 1rem;
+    background: linear-gradient(to right, #fff, #e0e0e0);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.subtitle {
+    font-size: 1.1rem;
+    opacity: 0.8;
+    margin-bottom: 2rem;
+}
+
+/* Controls: Search & Filter */
+.controls {
+    width: 100%;
+    max-width: 600px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    margin-bottom: 4rem;
+}
+
+.search-container {
+    width: 100%;
+    position: relative;
+}
+
+.search-input {
+    width: 100%;
+    padding: 1rem 1.5rem;
+    border-radius: 50px;
+    border: 1px solid var(--glass-border);
+    background: var(--search-bg);
+    color: #fff;
+    font-family: 'Quicksand', sans-serif;
+    font-size: 1rem;
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+    text-align: center;
+}
+
+.search-input:focus {
+    outline: none;
+    background: rgba(20, 20, 30, 0.8);
+    border-color: var(--accent-color);
+    box-shadow: 0 0 15px rgba(216, 180, 254, 0.2);
+}
+
+.filter-container {
+    display: flex;
+    gap: 0.8rem;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.filter-btn {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--glass-border);
+    color: rgba(255, 255, 255, 0.7);
+    padding: 0.5rem 1.2rem;
+    border-radius: 20px;
+    cursor: pointer;
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.filter-btn:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
+}
+
+.filter-btn.active {
+    background: var(--active-pill);
+    color: #fff;
+    border-color: transparent;
+    box-shadow: 0 4px 15px rgba(244, 114, 182, 0.3);
 }
 
 /* Grid Layout */
 .poem-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 2rem;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 2.5rem;
+    width: 100%;
 }
 
-/* Glassmorphism Card */
+/* Premium Card */
 .poem-card {
-    background: var(--card-bg);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    border: 1px solid var(--card-border);
-    border-radius: 16px;
+    background: var(--glass-bg);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid var(--glass-border);
+    border-radius: 24px;
     padding: 2rem;
+    min-height: 250px;
     cursor: pointer;
-    transition: transform 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    min-height: 200px;
+    justify-content: flex-end;
+    /* Bottom alignment */
+    align-items: flex-start;
+    text-align: left;
+    position: relative;
+    overflow: hidden;
+}
+
+.poem-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.5), transparent);
+    z-index: -1;
+    opacity: 0.6;
 }
 
 .poem-card:hover {
-    transform: translateY(-5px);
-    background: rgba(255, 255, 255, 0.1);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    transform: translateY(-8px) scale(1.02);
+    border-color: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
 }
 
 .poem-card h2 {
-    font-size: 1.5rem;
-    font-weight: 500;
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    font-weight: 700;
     margin-bottom: 0.5rem;
     color: #fff;
+    line-height: 1.1;
+}
+
+.poem-card .tags {
+    margin-bottom: 0.5rem;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--accent-color);
+    opacity: 0.9;
 }
 
 .poem-card p {
     font-size: 0.9rem;
-    opacity: 0.7;
+    opacity: 0.6;
+    font-style: italic;
 }
 
-/* Modal Styles */
+/* Modal Base Styles (Restored) */
 .modal-overlay {
     position: fixed;
     top: 0;
@@ -97,13 +226,14 @@ h1 {
     background: rgba(0, 0, 0, 0.6);
     backdrop-filter: blur(5px);
     -webkit-backdrop-filter: blur(5px);
-    z-index: 1000;
+    z-index: 2000;
+    /* High z-index */
     display: flex;
     justify-content: center;
     align-items: center;
     opacity: 0;
     visibility: hidden;
-    transition: opacity 0.3s ease, visibility 0.3s ease;
+    transition: all 0.3s ease;
 }
 
 .modal-overlay.active {
@@ -112,62 +242,68 @@ h1 {
 }
 
 .modal-content {
-    background: var(--modal-bg);
-    border: 1px solid var(--card-border);
+    background: rgba(20, 20, 30, 0.95);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
     padding: 3rem;
-    border-radius: 20px;
-    max-width: 500px;
+    border-radius: 24px;
+    max-width: 600px;
     width: 90%;
     text-align: center;
-    transform: scale(0.9);
-    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+    transform: scale(0.9) translateY(20px);
+    transition: all 0.4s cubic-bezier(0.19, 1, 0.22, 1);
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+    position: relative;
+    max-height: 80vh;
+    overflow-y: auto;
 }
 
 .modal-overlay.active .modal-content {
-    transform: scale(1);
-}
-
-.modal-title {
-    font-family: 'Georgia', serif;
-    font-size: 2rem;
-    color: var(--accent);
-    margin-bottom: 2rem;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    padding-bottom: 1rem;
-}
-
-.modal-body {
-    font-family: 'Georgia', serif;
-    font-size: 1.2rem;
-    line-height: 1.8;
-    color: #fff;
-    white-space: pre-wrap;
-    /* allow explicit newlines from text if needed, though we use <br> */
+    transform: scale(1) translateY(0);
 }
 
 .close-btn {
     position: absolute;
-    top: 15px;
-    right: 20px;
-    background: transparent;
+    top: 20px;
+    right: 25px;
+    background: none;
     border: none;
     color: rgba(255, 255, 255, 0.5);
     font-size: 2rem;
     cursor: pointer;
     transition: color 0.2s;
+    line-height: 1;
 }
 
 .close-btn:hover {
     color: #fff;
 }
 
-@media (max-width: 600px) {
+.modal-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.2rem;
+    color: var(--accent-color);
+    margin-bottom: 1.5rem;
+}
+
+.modal-body {
+    font-family: 'Quicksand', sans-serif;
+    font-size: 1.15rem;
+    line-height: 1.8;
+    color: #e0e0e0;
+    white-space: pre-wrap;
+}
+
+@media (max-width: 768px) {
+    .main-title {
+        font-size: 2.5rem;
+    }
+
     .poem-grid {
         grid-template-columns: 1fr;
     }
 
-    h1 {
-        font-size: 2rem;
+    .controls {
+        width: 100%;
     }
 }

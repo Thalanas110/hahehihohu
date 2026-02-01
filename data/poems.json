@@ -2,31 +2,55 @@
     {
         "id": 1,
         "title": "A Soft Grey",
-        "content": "The sky turned a soft grey,<br>And clouds began to weep,<br>washing the dust away,<br>While the world was asleep."
+        "content": "The sky turned a soft grey,<br>And clouds began to weep,<br>washing the dust away,<br>While the world was asleep.",
+        "tags": [
+            "Rain",
+            "Night"
+        ]
     },
     {
         "id": 2,
         "title": "Roof Taps",
-        "content": "Tap, tap, upon the roof,<br>A rhythm old and new.<br>Nature's own little proof,<br>Of life returning to you."
+        "content": "Tap, tap, upon the roof,<br>A rhythm old and new.<br>Nature's own little proof,<br>Of life returning to you.",
+        "tags": [
+            "Rain",
+            "Nature"
+        ]
     },
     {
         "id": 3,
         "title": "Puddle Mirrors",
-        "content": "Reflections in the street,<br>A world upside down.<br>Where two realities meet,<br>In the center of town."
+        "content": "Reflections in the street,<br>A world upside down.<br>Where two realities meet,<br>In the center of town.",
+        "tags": [
+            "Reflection",
+            "City"
+        ]
     },
     {
         "id": 4,
         "title": "Green Drink",
-        "content": "The leaves are thirsty now,<br>They open up their veins.<br>To catch the drops, somehow,<br>And wash away their stains."
+        "content": "The leaves are thirsty now,<br>They open up their veins.<br>To catch the drops, somehow,<br>And wash away their stains.",
+        "tags": [
+            "Nature",
+            "Growth"
+        ]
     },
     {
         "id": 5,
         "title": "Window pane",
-        "content": "Racing drops on glass,<br>A track that no one sees.<br>Watching the moments pass,<br>Moving with the breeze."
+        "content": "Racing drops on glass,<br>A track that no one sees.<br>Watching the moments pass,<br>Moving with the breeze.",
+        "tags": [
+            "Rain",
+            "Solitude"
+        ]
     },
     {
         "id": 6,
         "title": "After the Storm",
-        "content": "The smell of petrichor,<br>Rising from the ground.<br>Who could ask for more,<br>Than peace that is found?"
+        "content": "The smell of petrichor,<br>Rising from the ground.<br>Who could ask for more,<br>Than peace that is found?",
+        "tags": [
+            "Peace",
+            "Nature"
+        ]
     }
 ]

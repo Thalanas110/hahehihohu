@@ -8,7 +8,8 @@
     pointer-events: none;
     z-index: -1;
     overflow: hidden;
-    background: linear-gradient(to bottom, #1a1a2e, #16213e);
+    /* Dark overlay ~35% */
+    background: rgba(0, 0, 0, 0.35);
 }
 
 /* Rain Drop */
@@ -17,7 +18,8 @@
     width: 1px;
     height: 40px;
     /* Stretched drop */
-    background: rgba(255, 255, 255, 0.2);
+    background: rgba(255, 255, 255, 0.6);
+    /* Increased from 0.2 */
     top: -50px;
     animation: fall linear infinite;
 }

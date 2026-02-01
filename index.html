@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rainy Poems</title>
+    <title>Rainy Verses</title>
     <link rel="stylesheet" href="css/rain.css">
     <link rel="stylesheet" href="css/style.css">
 </head>
@@ -16,12 +16,24 @@
 
     <div class="container">
         <header>
-            <h1>Rainy Verses</h1>
+            <h1 class="main-title">Malipayong ika-3</h1> <!-- Custom title from ref or generic -->
+            <p class="subtitle">I-klik ang isa ka balak agud basahon ukon pamatian.</p>
         </header>
+
+        <div class="controls">
+            <div class="search-container">
+                <input type="text" id="search-input" class="search-input"
+                    placeholder="Search poems by title or theme...">
+            </div>
+
+            <div class="filter-container" id="filter-container">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <!-- Filters injected via JS -->
+            </div>
+        </div>
 
         <section class="poem-grid" id="poem-grid">
             <!-- Poems will be injected here -->
-            <p style="text-align:center; opacity:0.6;">Listening for rain...</p>
         </section>
     </div>
 
