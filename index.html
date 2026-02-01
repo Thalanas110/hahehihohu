@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rainy Poems</title>
+    <link rel="stylesheet" href="css/rain.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <!-- Background Effect -->
+    <div class="rain-container" id="rain"></div>
+
+    <div class="container">
+        <header>
+            <h1>Rainy Verses</h1>
+        </header>
+
+        <section class="poem-grid" id="poem-grid">
+            <!-- Poems will be injected here -->
+            <p style="text-align:center; opacity:0.6;">Listening for rain...</p>
+        </section>
+    </div>
+
+    <!-- Modal Structure -->
+    <div class="modal-overlay">
+        <div class="modal-content">
+            <button class="close-btn">&times;</button>
+            <h2 class="modal-title"></h2>
+            <div class="modal-body"></div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script type="module" src="script.js"></script>
+</body>
+
+</html>
